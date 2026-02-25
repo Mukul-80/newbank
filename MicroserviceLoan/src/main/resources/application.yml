@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://mysql-service:3306/loandb
+    url: jdbc:mysql://mysql-db:3306/loandb
     username: root
     password: mukul
   jpa:
