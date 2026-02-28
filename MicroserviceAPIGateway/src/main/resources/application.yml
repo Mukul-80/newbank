@@ -13,27 +13,27 @@ spring:
 
       routes:
        - id: AUTH-SERVICE
-         uri: http://localhost:9091
+         uri: lb://AUTH-SERVICE
          predicates:
            - Path=/auth/** 
 
        - id: ACCOUNT-SERVICE
-         uri: http://localhost:9092
+         uri: lb://ACCOUNT-SERVICE
          predicates: 
            - Path=/accounts/**
 
        - id: LOAN-SERVICE
-         uri: http://localhost:9093
+         uri: lb://LOAN-SERVICE
          predicates: 
            - Path=/loans/**
 
        - id: TRANSACTION-SERVICE
-         uri: http://localhost:9094
+         uri: lb://TRANSACTION-SERVICE
          predicates: 
            - Path=/transactions/**					 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://SERVICE-REGISTRY:8761/eureka
     register-with-eureka: true
     fetch-registry: true
