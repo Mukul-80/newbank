@@ -5,7 +5,7 @@
 	<parent>
     <groupId>com.microservices</groupId>
     <artifactId>microservices-parent</artifactId>
-    <version>3.2.5</version>
+    <version>1.0.0</version>
     </parent>
 	<artifactId>MicroserviceAuthservice</artifactId>
 	<name>MicroserviceAuthservice</name>
@@ -24,10 +24,6 @@
 		<tag/>
 		<url/>
 	</scm>
-	<properties>
-		<java.version>17</java.version>
-		<spring-cloud.version>2024.0.1</spring-cloud.version>
-	</properties>
 	<dependencies>
 		<dependency>           <!-- for eureka cleint this property has been added -->
 			<groupId>org.springframework.cloud</groupId>
@@ -45,7 +41,7 @@
 		  <dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<scope>true</scope>
+			<version>1.18.30</version>
 		</dependency>
 		<dependency>
         <groupId>org.springframework.boot</groupId>
@@ -82,36 +78,14 @@
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
-	<dependencyManagement> <!-- for eureka cleint this property has been added -->
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>2023.0.1</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 	<build>
-		 <plugins>
+    <plugins>
+        <!-- ✅ REQUIRED for executable Spring Boot JAR -->
         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.11.0</version>
-            <configuration>
-                <source>17</source>
-                <target>17</target>
-                <annotationProcessorPaths>
-                    <path>
-                        <groupId>org.projectlombok</groupId>
-                        <artifactId>lombok</artifactId>
-                        <version>1.18.30</version>
-                    </path>
-                </annotationProcessorPaths>
-            </configuration>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
         </plugin>
     </plugins>
-	</build>
+  </build>
 
 </project>
